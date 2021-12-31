@@ -12,16 +12,18 @@
 int main(){
     Blockchain awesomeCoin;
     
-    TransactionData data1;
     time_t data1Time;
-    data1.amount = 1.5;
-    data1.recieverKey = "Julio";
-    data1.senderKey = "Joe";
-    data1.timestamp = time(&data1Time);
-
+    TransactionData data1(1.5, "Joe", "Sally", time(&data1Time));
     awesomeCoin.addBlock(data1);
 
-    std::cout<<"Is chain valid?"<<std::endl;
+    time_t data2Time;
+    TransactionData data2(2, "Joe", "Sally", time(&data2Time));
+    awesomeCoin.addBlock(data2);
+
+    awesomeCoin.printChain();
+    printf("\nIs chain still valid? %d\n", awesomeCoin.isChainValid());
+
+    /*std::cout<<"Is chain valid?"<<std::endl;
     std::string validMessage = (awesomeCoin.isChainValid()) ? "Is valid" : "Is not valid";
     std::cout<<validMessage<<std::endl;
 
@@ -31,6 +33,6 @@ int main(){
 
     std::cout<<"Now is the chain still valid?"<<std::endl;
     validMessage = (awesomeCoin.isChainValid()) ? "Is valid" : "Is not valid";
-    std::cout<<validMessage<<std::endl;
+    std::cout<<validMessage<<std::endl;*/
 }
 

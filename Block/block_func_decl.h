@@ -16,21 +16,23 @@ Block::Block(int idx, TransactionData d, size_t prevHash){
 }
 
 size_t Block::generateHash(){
-    std::hash<std::string> hash1;
-    std::hash<size_t> hash2;
-    std::hash<size_t> finalHash;
     std::string toHash = std::to_string(data.amount) + data.recieverKey + data.senderKey + std::to_string(data.timestamp);
+    std::hash<std::string> transactionDataHash;
+    std::hash<std::string> prevHash;
 
-    return finalHash(hash1(toHash) + hash2(previousHash));
+    return transactionDataHash(toHash) ^ (prevHash(std::to_string(previousHash)) << 1);
 }
 size_t Block::getOriginalHash(){
     return blockHash;
+}
+int Block::getIndex(){
+    return index;
 }
 size_t Block::getPreviousHash(){
     return previousHash;
 }
 bool Block::isHashValid(){
-    return generateHash() == blockHash;
+    return generateHash() == getOriginalHash();
 }
 
 #endif

@@ -15,6 +15,7 @@ class Block{
 
     public:
         Block(int idx, TransactionData d, size_t prevHash);
+        int getIndex();
         size_t getOriginalHash();
         size_t getPreviousHash();
         TransactionData data;

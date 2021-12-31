@@ -11,12 +11,14 @@
 class Blockchain{
     private:
         Block createGenesisBlock();
+        std::vector<Block> publicChain;
 
     public:
-        std::vector<Block> publicChain;
         Blockchain();
+        std::vector<Block> getChain();
         void addBlock(TransactionData data);
         bool isChainValid();
+        void printChain();
 
         Block *getLastestBlock();
 };
