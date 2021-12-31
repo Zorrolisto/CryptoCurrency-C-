@@ -4,8 +4,8 @@ Begin with crypto in C++
 
 ## Functionality
 
+* Show blocks in chain
 * Verify if chain is valid when init coin
-* Verify if chain still valid when data change
 
 ## Script
 
