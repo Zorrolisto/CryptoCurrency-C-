@@ -9,4 +9,4 @@ Begin with crypto in C++
 
 ## Script
 
-- g++ main.cpp -o AwesomeCoin; ./AwesomeCoin
+- g++ main.cpp -o AwesomeCoin; time ./AwesomeCoin
